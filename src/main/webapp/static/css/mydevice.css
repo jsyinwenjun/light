@@ -1,0 +1,33 @@
+body {
+	background-color:#E1E1E1;
+}
+
+.container {
+	padding: 0;
+}
+
+.loading {
+	width: 26px;
+    height: 26px;
+    background-image: url(../images/loading.gif);
+    background-position: -42px -58px;
+    background-repeat: no-repeat;
+    margin: auto;
+}
+.row {
+
+	min-height:50px;
+	padding: 15px 0;
+	border-bottom: 1px solid #E1E1E1;
+	background-color:#FFF;
+}
+.row label {
+	
+	height:26px;
+	line-height:26px;
+}
+@media (min-width: 320px) {
+	.form-horizontal .control-label {
+	    padding-top: 5px;
+	}
+}

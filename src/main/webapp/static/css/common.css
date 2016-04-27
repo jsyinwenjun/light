@@ -1,0 +1,184 @@
+
+body{
+	background-image: url('../images/night.jpg');
+	background-size: 100%;
+	font-family: '微软雅黑';
+    height:100%;
+    overflow:hidden;
+}
+body{
+  -moz-user-select:none;/*火狐*/
+  -webkit-user-select:none;/*webkit浏览器*/
+  -ms-user-select:none;/*IE10*/
+  -khtml-user-select:none;/*早期浏览器*/
+  user-select:none;
+}
+.load{
+  text-align: center;
+  margin-top: 300px;
+  color:white;
+}
+
+.back {
+    position: absolute;
+    z-index: -2;
+    display: none;
+}
+
+.center {
+    text-align: center;
+}
+
+.light-text {
+    color: #ffffff;
+    font-size: 17px;
+    margin-top: -30px;
+}
+
+.control-panel{
+	background-color: #ffffff;
+	font-size: 10px;
+    padding-right: 30px;
+	padding-left: 30px;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+.switch {
+	content:url("../images/switch.png")
+}
+
+.bright {
+	content:url("../images/bright.png")
+}
+
+.bright.disable {
+	content:url("../images/bright_disable.png")
+}
+
+.bright.selected {
+	content:url("../images/bright_selected.png")
+}
+
+.color {
+	content:url("../images/bright.png")
+}
+
+.color.disable {
+	content:url("../images/bright_disable.png")
+}
+
+.color.selected {
+	content:url("../images/bright_selected.png")
+}
+
+#light-list .modal-content {
+	overflow-y: auto;
+	-webkit-overflow-scrolling:touch;
+	-webkit-box-sizing : border-box;
+}
+
+@-webkit-keyframes delaying {
+  0% {
+    -webkit-box-shadow:0px 0px 15px #888888; }
+
+  50% {
+    -webkit-box-shadow:0px 0px 3px #888888; }
+
+  100% {
+    -webkit-box-shadow:0px 0px 15px #888888; }
+}
+@keyframes delaying {
+  0% {
+	box-shadow:0px 0px 15px #888888; }
+
+  50% {
+	box-shadow:0px 0px 3px #888888; }
+
+  100% {
+	box-shadow:0px 0px 15px #888888; } 
+}
+
+.delay {
+	content:url("../images/delay.png");
+	transform:scale(0.9, 0.9);
+	-webkit-transform:scale(0.9, 0.9);
+}
+
+.delay.disable {
+	content:url("../images/delay_disable.png")
+}
+
+.delay.selected {
+	content:url("../images/delay_selected.png")
+}
+.delay.delaying {
+	content:url("../images/delay.png");
+	border-radius: 50%;
+	-webkit-animation-fill-mode: both;
+	        animation-fill-mode: both;
+	-webkit-animation-name: delaying;
+	        animation-name: delaying;
+	-webkit-animation-iteration-count: infinite;
+	        animation-iteration-count: infinite; 
+	          
+	-webkit-animation-duration: 2s;
+	        animation-duration: 2s; 
+}
+
+/*load*/
+@-webkit-keyframes point-scale-party {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1); }
+
+  50% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5); }
+
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
+
+@keyframes point-scale-party {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1); }
+
+  50% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5); }
+
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
+
+.point-scale-party > div {
+  background-color: #fff;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  margin:5px;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  display: inline-block;
+  -webkit-animation-name: point-scale-party;
+          animation-name: point-scale-party;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite; 
+          
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s; }
+
+.point-scale-party > div:nth-child(1) {
+  -webkit-animation-delay: -0.75s;
+          animation-delay: -0.75s;}
+.point-scale-party > div:nth-child(2) {
+  -webkit-animation-delay: -0.5s;
+          animation-delay: -0.5s;}
+.point-scale-party > div:nth-child(3) {
+  -webkit-animation-delay: -0.25s;
+          animation-delay: -0.25s;}
+.point-scale-party > div:nth-child(4) {
+  -webkit-animation-delay: -0s;
+          animation-delay: -0s;}

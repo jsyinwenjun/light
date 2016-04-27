@@ -1,0 +1,31 @@
+{
+     "button":[
+    		{	
+               "type":"view",
+               "name":"灯控",
+               "url":"http://weixin.chi-tek.com/light/service/weixin/control"
+            },
+ 			{	
+               "type":"view",
+               "name":"我的设备",
+               "url":"http://weixin.chi-tek.com/light/service/weixin/mydevice"
+            },
+            {
+            	"name":"添加设备",
+            	"sub_button": [
+		            {	
+		               "type":"scancode_push",
+		               "name":"扫描二维码",
+		               "key": "rselfmenu_0_1", 
+		               "sub_button": [ ]
+		            },
+		            {	
+		               "type":"view",
+		               "name":"搜索设备",
+		               "url":"http://weixin.chi-tek.com/light/service/weixin/lightadd"
+		            }
+            	]
+            },
+ 			
+       ]
+ }

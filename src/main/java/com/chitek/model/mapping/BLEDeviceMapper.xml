@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.chitek.model.dao.BLEDeviceMapper" >
+  <resultMap id="BaseResultMap" type="com.chitek.model.entity.BLEDevice" >
+    <id column="device_id" property="deviceId" jdbcType="VARCHAR" />
+    <result column="qrticket" property="qrticket" jdbcType="VARCHAR" />
+    <result column="device_licence" property="deviceLicence" jdbcType="VARCHAR" />
+    <result column="custom_data" property="customData" jdbcType="VARCHAR" />
+    <result column="mac" property="mac" jdbcType="VARCHAR" />
+    <result column="connect_protocol" property="connectProtocol" jdbcType="VARCHAR" />
+    <result column="auth_key" property="authKey" jdbcType="VARCHAR" />
+    <result column="close_strategy" property="closeStrategy" jdbcType="INTEGER" />
+    <result column="conn_strategy" property="connStrategy" jdbcType="INTEGER" />
+    <result column="crypt_method" property="cryptMethod" jdbcType="INTEGER" />
+    <result column="auth_ver" property="authVer" jdbcType="INTEGER" />
+    <result column="manu_mac_pos" property="manuMacPos" jdbcType="INTEGER" />
+    <result column="ser_mac_pos" property="serMacPos" jdbcType="INTEGER" />
+    <result column="ble_simple_protocol" property="bleSimpleProtocol" jdbcType="INTEGER" />
+    <result column="device_name" property="deviceName" jdbcType="VARCHAR" />
+    <result column="device_type" property="deviceType" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    device_id, qrticket, device_licence, custom_data, mac, connect_protocol, auth_key, 
+    close_strategy, conn_strategy, crypt_method, auth_ver, manu_mac_pos, ser_mac_pos, 
+    ble_simple_protocol, device_name, device_type
+  </sql>
+  <select id="selectAll" resultMap="BaseResultMap">
+	select 
+	<include refid="Base_Column_List" />
+	from ble_device
+  </select>
+  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ble_device
+    where device_id = #{deviceId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from ble_device
+    where device_id = #{deviceId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.chitek.model.entity.BLEDevice" >
+    insert into ble_device (device_id, qrticket, device_licence, 
+      custom_data, mac, connect_protocol, 
+      auth_key, close_strategy, conn_strategy, 
+      crypt_method, auth_ver, manu_mac_pos, 
+      ser_mac_pos, ble_simple_protocol, device_name, device_type)
+    values (#{deviceId,jdbcType=VARCHAR}, #{qrticket,jdbcType=VARCHAR}, #{deviceLicence,jdbcType=VARCHAR}, 
+      #{customData,jdbcType=VARCHAR}, #{mac,jdbcType=VARCHAR}, #{connectProtocol,jdbcType=VARCHAR}, 
+      #{authKey,jdbcType=VARCHAR}, #{closeStrategy,jdbcType=INTEGER}, #{connStrategy,jdbcType=INTEGER}, 
+      #{cryptMethod,jdbcType=INTEGER}, #{authVer,jdbcType=INTEGER}, #{manuMacPos,jdbcType=INTEGER}, 
+      #{serMacPos,jdbcType=INTEGER}, #{bleSimpleProtocol,jdbcType=INTEGER}), #{deviceName,jdbcType=VARCHAR},
+      #{deviceType,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.chitek.model.entity.BLEDevice" >
+    insert into ble_device
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="deviceId != null" >
+        device_id,
+      </if>
+      <if test="qrticket != null" >
+        qrticket,
+      </if>
+      <if test="deviceLicence != null" >
+        device_licence,
+      </if>
+      <if test="customData != null" >
+        custom_data,
+      </if>
+      <if test="mac != null" >
+        mac,
+      </if>
+      <if test="connectProtocol != null" >
+        connect_protocol,
+      </if>
+      <if test="authKey != null" >
+        auth_key,
+      </if>
+      <if test="closeStrategy != null" >
+        close_strategy,
+      </if>
+      <if test="connStrategy != null" >
+        conn_strategy,
+      </if>
+      <if test="cryptMethod != null" >
+        crypt_method,
+      </if>
+      <if test="authVer != null" >
+        auth_ver,
+      </if>
+      <if test="manuMacPos != null" >
+        manu_mac_pos,
+      </if>
+      <if test="serMacPos != null" >
+        ser_mac_pos,
+      </if>
+      <if test="bleSimpleProtocol != null" >
+        ble_simple_protocol,
+      </if>
+      <if test="deviceName != null" >
+        device_name,
+      </if>
+      <if test="deviceType != null" >
+        device_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="deviceId != null" >
+        #{deviceId,jdbcType=VARCHAR},
+      </if>
+      <if test="qrticket != null" >
+        #{qrticket,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceLicence != null" >
+        #{deviceLicence,jdbcType=VARCHAR},
+      </if>
+      <if test="customData != null" >
+        #{customData,jdbcType=VARCHAR},
+      </if>
+      <if test="mac != null" >
+        #{mac,jdbcType=VARCHAR},
+      </if>
+      <if test="connectProtocol != null" >
+        #{connectProtocol,jdbcType=VARCHAR},
+      </if>
+      <if test="authKey != null" >
+        #{authKey,jdbcType=VARCHAR},
+      </if>
+      <if test="closeStrategy != null" >
+        #{closeStrategy,jdbcType=INTEGER},
+      </if>
+      <if test="connStrategy != null" >
+        #{connStrategy,jdbcType=INTEGER},
+      </if>
+      <if test="cryptMethod != null" >
+        #{cryptMethod,jdbcType=INTEGER},
+      </if>
+      <if test="authVer != null" >
+        #{authVer,jdbcType=INTEGER},
+      </if>
+      <if test="manuMacPos != null" >
+        #{manuMacPos,jdbcType=INTEGER},
+      </if>
+      <if test="serMacPos != null" >
+        #{serMacPos,jdbcType=INTEGER},
+      </if>
+      <if test="bleSimpleProtocol != null" >
+        #{bleSimpleProtocol,jdbcType=INTEGER},
+      </if>
+      <if test="deviceName != null" >
+        #{deviceName,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceType != null" >
+        #{deviceType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.chitek.model.entity.BLEDevice" >
+    update ble_device
+    <set >
+      <if test="qrticket != null" >
+        qrticket = #{qrticket,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceLicence != null" >
+        device_licence = #{deviceLicence,jdbcType=VARCHAR},
+      </if>
+      <if test="customData != null" >
+        custom_data = #{customData,jdbcType=VARCHAR},
+      </if>
+      <if test="mac != null" >
+        mac = #{mac,jdbcType=VARCHAR},
+      </if>
+      <if test="connectProtocol != null" >
+        connect_protocol = #{connectProtocol,jdbcType=VARCHAR},
+      </if>
+      <if test="authKey != null" >
+        auth_key = #{authKey,jdbcType=VARCHAR},
+      </if>
+      <if test="closeStrategy != null" >
+        close_strategy = #{closeStrategy,jdbcType=INTEGER},
+      </if>
+      <if test="connStrategy != null" >
+        conn_strategy = #{connStrategy,jdbcType=INTEGER},
+      </if>
+      <if test="cryptMethod != null" >
+        crypt_method = #{cryptMethod,jdbcType=INTEGER},
+      </if>
+      <if test="authVer != null" >
+        auth_ver = #{authVer,jdbcType=INTEGER},
+      </if>
+      <if test="manuMacPos != null" >
+        manu_mac_pos = #{manuMacPos,jdbcType=INTEGER},
+      </if>
+      <if test="serMacPos != null" >
+        ser_mac_pos = #{serMacPos,jdbcType=INTEGER},
+      </if>
+      <if test="bleSimpleProtocol != null" >
+        ble_simple_protocol = #{bleSimpleProtocol,jdbcType=INTEGER},
+      </if>
+      <if test="deviceName != null" >
+        device_name = #{deviceName,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceType != null" >
+        device_name = #{deviceType,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where device_id = #{deviceId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.chitek.model.entity.BLEDevice" >
+    update ble_device
+    set qrticket = #{qrticket,jdbcType=VARCHAR},
+      device_licence = #{deviceLicence,jdbcType=VARCHAR},
+      custom_data = #{customData,jdbcType=VARCHAR},
+      mac = #{mac,jdbcType=VARCHAR},
+      connect_protocol = #{connectProtocol,jdbcType=VARCHAR},
+      auth_key = #{authKey,jdbcType=VARCHAR},
+      close_strategy = #{closeStrategy,jdbcType=INTEGER},
+      conn_strategy = #{connStrategy,jdbcType=INTEGER},
+      crypt_method = #{cryptMethod,jdbcType=INTEGER},
+      auth_ver = #{authVer,jdbcType=INTEGER},
+      manu_mac_pos = #{manuMacPos,jdbcType=INTEGER},
+      ser_mac_pos = #{serMacPos,jdbcType=INTEGER},
+      ble_simple_protocol = #{bleSimpleProtocol,jdbcType=INTEGER},
+      device_name = #{deviceName,jdbcType=VARCHAR},
+      device_type = #{deviceType,jdbcType=VARCHAR}
+    where device_id = #{deviceId,jdbcType=VARCHAR}
+  </update>
+</mapper>
